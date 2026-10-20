@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doc-bundle-inventory"
+version = "0.1.0"
+description = "Inventory nested archives and mixed documents into a structured manifest."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "MMingLeung" }]
+keywords = ["zip", "archive", "documents", "manifest", "inventory", "docx", "pdf"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+rar = ["rarfile>=4.1"]
+py7zr = ["py7zr>=0.20"]
+all = ["rarfile>=4.1", "py7zr>=0.20"]
+dev = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/MMingLeung/doc-bundle-inventory"
+Repository = "https://github.com/MMingLeung/doc-bundle-inventory"
+
+[project.scripts]
+doc-bundle-inventory = "doc_bundle_inventory.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["doc_bundle_inventory*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
